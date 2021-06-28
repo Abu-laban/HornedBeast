@@ -1,13 +1,24 @@
 import React from 'react';
+import Beasts from './Beasts';
+import data from '../data/data.json'
+
+
 
 class HornedBeasts extends React.Component {
+
+
+
     render() {
         return (
-            <div>
-                <h2>{this.props.title}</h2>
-                <img src={this.props.src} alt={this.props.keyword} title={this.props.title} />
-                <p>{this.props.description}</p>
-            </div>
+            <>
+
+                {data.map((item, index) => {
+                    return (
+                        <Beasts key={index} src={item.image_url} title={item.title} description={item.description} keyword={item.keyword} horns={item.horns} />
+                    )
+                })}
+
+            </>
         )
     }
 }
